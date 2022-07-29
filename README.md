@@ -13,7 +13,13 @@ msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64
 
 **注**：在Windows中gtest编译存在一些问题，所以默认情况下不编译Test部分，即`-DBUILD_TEST=OFF`。
 
+## Ubuntu 20.04LTS
 
+```
+sudo apt install libclblas-dev
+```
+
+**注**：直接安装吧，编译不是万能的，你说呢:-)
 
 ## Build Status
 
