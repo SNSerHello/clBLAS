@@ -1,4 +1,22 @@
+# 编译clBLAS
+
+## Windows
+
+```bash
+mkdir build
+cd build
+cmake -G "Visual Studio 15 2017 Win64" -DBUILD_TEST=OFF -DCMAKE_INSTALL_PREFIX=../dist/clblas ../src
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64 ALL_BUILD.vcxproj
+msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64 INSTALL.vcxproj
+```
+
+**注**：在Windows中gtest编译存在一些问题，所以默认情况下不编译Test部分，即`-DBUILD_TEST=OFF`。
+
+
+
 ## Build Status
+
 | Build branch | master | develop |
 |-----|-----|-----|
 | GCC/Clang x64 | [![Build Status](https://travis-ci.org/clMathLibraries/clBLAS.svg?branch=master)](https://travis-ci.org/clMathLibraries/clBLAS/branches) | [![Build Status](https://travis-ci.org/clMathLibraries/clBLAS.svg?branch=develop)](https://travis-ci.org/clMathLibraries/clBLAS/branches) |
