@@ -26,3 +26,7 @@
 
 # python compiled files
 *.pyc
+
+# Generated files
+build*
+dist*
