@@ -15,11 +15,34 @@ msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64
 
 ## Ubuntu 20.04LTS
 
-```
+```bash
 sudo apt install libclblas-dev
 ```
 
 **注**：直接安装吧，编译不是万能的，你说呢:-)
+
+```bash
+mkdir build
+cd build
+cmake ../src \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=../dist/clblas \
+    -DBUILD_SHARED_LIBS=ON \
+    -DBUILD_CLIENT=ON \
+    -DBUILD_KTEST=ON \
+    -DBUILD_PERFORMANCE=ON \
+    -DBUILD_RUNTIME=ON \
+    -DBUILD_SAMPLE=ON \
+    -DBUILD_TEST=ON \
+    -DBLAS_PRINT_BUILD_ERRORS=ON \
+    -DUSE_SYSTEM_GTEST=OFF \
+    -DBLAS_TRACE_MALLOC=OFF \
+    -DDUMP_CLBLAS_KERNELS=OFF \
+    -DBLAS_KEEP_KERNEL_SOURCES=OFF
+make -j
+```
+
+
 
 ## Build Status
 
