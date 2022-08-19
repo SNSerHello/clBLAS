@@ -5,7 +5,11 @@
 ```bash
 mkdir build
 cd build
-cmake -G "Visual Studio 15 2017 Win64" -DBUILD_TEST=OFF -DCMAKE_INSTALL_PREFIX=../dist/clblas ../src
+cmake -G "Visual Studio 15 2017 Win64" ^
+    -DCMAKE_BUILD_TYPE=Release ^
+    -DBUILD_TEST=OFF ^
+    -DCMAKE_INSTALL_PREFIX=../dist/clblas ^
+    ../src
 %comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
 msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64 ALL_BUILD.vcxproj
 msbuild /maxcpucount:4 /p:Configuration=Release /p:PreferredToolArchitecture=x64 INSTALL.vcxproj
