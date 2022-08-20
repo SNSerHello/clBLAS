@@ -502,7 +502,8 @@ for params in test_combinations:
             #quit()  
 
     if writeline:
-        gflopsoutput = itertools.ifilter( lambda x: x.count('Gflops'), output)
+        # gflopsoutput = itertools.ifilter( lambda x: x.count('Gflops'), output)
+        gflopsoutput = filter( lambda x: x.count('Gflops'), output)
         gflopsoutput = list(itertools.islice(gflopsoutput, None))
         thisResult = re.search('\d+\.*\d*e*-*\d*$', gflopsoutput[0])
         if thisResult != None:
