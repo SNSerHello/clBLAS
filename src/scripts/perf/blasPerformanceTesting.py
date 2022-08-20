@@ -158,7 +158,8 @@ def load_ini_file_if_requested(args, parser):
 
 
 def is_numeric_type(x):
-    return type(x) == int or type(x) == long or type(x) == float
+    # return type(x) == int or type(x) == long or type(x) == float
+    return type(x) == int or type(x) == float
 
 def split_up_comma_delimited_lists(args):
     for x in vars(args):
