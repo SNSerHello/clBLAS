@@ -87,18 +87,18 @@ def executable(library):
         print('ERROR: expected library name to be a string')
         quit()
 
-    if sys.platform != 'win32' and sys.platform != 'linux2':
+    if sys.platform != 'win32' and sys.platform != 'linux':
         print('ERROR: unknown operating system')
         quit()
     if library == 'clblas':
         if sys.platform == 'win32':
             exe = 'clBLAS-client.exe'
-        elif sys.platform == 'linux2':
+        elif sys.platform == 'linux':
             exe = './clBLAS-client'
     if library == 'acmlblas':
         if sys.platform == 'win32':
             exe = 'ACMLBlas_client.exe'
-        elif sys.platform == 'linux2':
+        elif sys.platform == 'linux':
             exe = './ACMLBlas_client'
     if library!='null' and library!='clblas' and library!='acmlblas':
         print('ERROR: unknown library -- cannot determine executable name ' + library)
