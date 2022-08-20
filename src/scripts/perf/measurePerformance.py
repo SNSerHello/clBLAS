@@ -21,7 +21,7 @@ import itertools
 import re#gex
 import os
 from threading import Timer, Thread
-import thread, time
+import time
 from platform import system
 from datetime import datetime
 
@@ -148,7 +148,7 @@ subprocess.call('mkdir perfLog', shell = True)
 logfile = os.path.join('perfLog', (label+'-'+'blasMeasurePerfLog.txt'))
 
 def printLog(txt):
-    print txt
+    print(txt)
     log(logfile, txt)
 printLog("=========================MEASURE PERFORMANCE START===========================")
 printLog("Process id of Measure Performance:"+str(os.getpid()))

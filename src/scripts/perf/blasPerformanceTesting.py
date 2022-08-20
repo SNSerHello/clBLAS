@@ -84,11 +84,11 @@ def transformDimension(x,y,z):
 
 def executable(library):
     if type(library) != str:
-        print 'ERROR: expected library name to be a string'
+        print('ERROR: expected library name to be a string')
         quit()
 
     if sys.platform != 'win32' and sys.platform != 'linux2':
-        print 'ERROR: unknown operating system'
+        print('ERROR: unknown operating system')
         quit()
     if library == 'clblas':
         if sys.platform == 'win32':
@@ -101,12 +101,12 @@ def executable(library):
         elif sys.platform == 'linux2':
             exe = './ACMLBlas_client'
     if library!='null' and library!='clblas' and library!='acmlblas':
-        print 'ERROR: unknown library -- cannot determine executable name ' + library
+        print('ERROR: unknown library -- cannot determine executable name ' + library)
         quit()
 
     if not os.path.isfile(exe):
         error_message = 'ERROR: could not find client named ' + exe
-        print error_message
+        print(error_message)
         quit()
 
     return exe
@@ -136,9 +136,9 @@ def maxBatchSize(lengthx, lengthy, lengthz, exe, device):
 
 def create_ini_file_if_requested(args):
     if args.createIniFilename:
-        #print vars(args)
+        #print(vars(args))
         for x in vars(args):
-            #print x
+            #print(x)
             if (type(getattr(args,x)) != file) and getattr(args,x) != None\
                     and x.count('File') == 0:
                 args.createIniFilename.write('--' + x + ' ')
@@ -326,6 +326,6 @@ def open_file( filename ):
             oldname = filename
             filename = filename + datetime.now().isoformat().replace(':','.')
             message = 'A file with the name ' + oldname + ' already exists. Changing filename to ' + filename
-            print message
+            print(message)
 
     return open(filename, 'w')

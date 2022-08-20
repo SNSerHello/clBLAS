@@ -64,5 +64,5 @@ if __name__ == '__main__':
         raise ApplicationException('errorHandler', SYS_ERR)
 
     except:
-        print 'Generic exception'
+        print('Generic exception')
 

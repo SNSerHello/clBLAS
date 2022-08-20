@@ -72,7 +72,7 @@ def plotFromDataFile():
   """
   for thisFile in args.datafile:
     if not os.path.isfile(thisFile):
-      print 'No file with the name \'{}\' exists. Please indicate another filename.'.format(thisFile)
+      print('No file with the name \'{}\' exists. Please indicate another filename.'.format(thisFile))
       quit()
   
     results = open(thisFile, 'r')
@@ -80,11 +80,11 @@ def plotFromDataFile():
     results_contents = results_contents.rstrip().split('\n')
   
     firstRow = results_contents.pop(0)
-    print firstRow
-    print blas_table_header()
-    print firstRow.rstrip()==blas_table_header()
+    print(firstRow)
+    print(blas_table_header())
+    print(firstRow.rstrip()==blas_table_header())
     if firstRow.rstrip() != blas_table_header():
-      print 'ERROR: input file \'{}\' does not match expected format.'.format(thisFile)
+      print('ERROR: input file \'{}\' does not match expected format.'.format(thisFile))
       quit()
   
     for row in results_contents:
@@ -103,7 +103,7 @@ def plotFromDataFile():
       values.append(getattr(point, option)) 
     multiplePlotValues.append(len(set(values)) > 1)
   if multiplePlotValues.count(True) > 1 and args.plot == None:
-    print 'ERROR: more than one parameter of {} has multiple values. Please specify which parameter to plot with --plot'.format(plotvalues)
+    print('ERROR: more than one parameter of {} has multiple values. Please specify which parameter to plot with --plot'.format(plotvalues))
     quit()
   
   # if args.graphxaxis is not 'problemsize', the user should know that the results might be strange
@@ -116,14 +116,14 @@ def plotFromDataFile():
   #        values.append(getattr(point, option)) 
   #      xaxisvalueSet.append(len(set(values)) > 1)
   #  if xaxisvalueSet.count(True) > 1:
-  #    print 'WARNING: more than one parameter of {} is varied. unexpected results may occur. please double check your graphs for accuracy.'.format(xaxisvalues)
+  #    print('WARNING: more than one parameter of {} is varied. unexpected results may occur. please double check your graphs for accuracy.'.format(xaxisvalues))
   
   # multiple rows should not have the same input values
   #pointInputs = []
   #for point in data:
   #  pointInputs.append(point.__str__().split(';')[0])
   #if len(set(pointInputs)) != len(data):
-  #  print 'ERROR: imported table has duplicate rows with identical input parameters'
+  #  print('ERROR: imported table has duplicate rows with identical input parameters')
   #  quit()
   
   """
@@ -164,7 +164,7 @@ def plotFromDataFile():
     plottype = 'semilogx'
     plotkwargs = {'basex':10}
   else:
-    print 'ERROR: invalid value for x-axis scale'
+    print('ERROR: invalid value for x-axis scale')
     quit()
   
   plots = set(getattr(row, multiplePlots) for row in data)
@@ -304,6 +304,6 @@ args = parser.parse_args()
 if args.datafile != None:
   plotFromDataFile()
 else:
-  print "Atleast specify if you want to use text files or database for plotting graphs. Use -h or --help option for more details"
+  print("Atleast specify if you want to use text files or database for plotting graphs. Use -h or --help option for more details")
   quit()
 
