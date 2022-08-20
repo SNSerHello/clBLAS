@@ -14,7 +14,10 @@
 # limitations under the License.
 # ########################################################################
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.12)
+
+add_definitions(-DCL_TARGET_OPENCL_VERSION=120)
+
 
 #User toggle-able options that can be changed on the command line with -D
 option( BUILD_RUNTIME "Build the BLAS runtime library" ON )
